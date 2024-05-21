@@ -1,18 +1,25 @@
+import { useState } from "react"
 import { View, Text, StyleSheet } from "react-native"
 import MultipleBar from "@/components/bars/MultipleBar.bars"
 
 export default function DailyBudgetCard() {
+  //   const [barClicked, setBarClicked] = useState<number | null>(null)
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Daily Remain</Text>
-      <Text style={styles.amount}>$100</Text>
+      <Text style={styles.amount}>$35</Text>
       <MultipleBar />
+      <View style={styles.popUp}>
+        <Text style={styles.popUpText}>Bar clicked</Text>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    position: "relative",
     width: "100%",
     backgroundColor: "#EEEBA2",
     padding: 20,
@@ -29,8 +36,8 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   title: {
-    fontSize: 16,
-    fontWeight: "regular",
+    fontSize: 14,
+    fontWeight: "light",
   },
   amount: {
     fontSize: 30,
@@ -38,5 +45,18 @@ const styles = StyleSheet.create({
   },
   bar: {
     marginTop: 10,
+  },
+  popUp: {
+    position: "absolute",
+    top: 50,
+    left: 130,
+    width: "auto",
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 10,
+  },
+  popUpText: {
+    color: "white",
+    fontSize: 10,
   },
 })
