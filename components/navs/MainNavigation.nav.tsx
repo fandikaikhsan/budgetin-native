@@ -1,10 +1,26 @@
-import { View, StyleSheet, TouchableOpacity, Pressable } from "react-native"
+import { View, StyleSheet, TouchableOpacity, Animated } from "react-native"
 import { Link } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
 import { BlurView } from "expo-blur"
 import { NavigationContainer } from "@react-navigation/native"
+import { useEffect, useRef } from "react"
 
 export default function MainNavigation({ active }: { active: string }) {
+  const isHome = active === "home"
+  const rotateAnim = useRef(new Animated.Value(0)).current
+  useEffect(() => {
+    Animated.timing(rotateAnim, {
+      toValue: isHome ? -2 : 4,
+      duration: 300,
+      useNativeDriver: true,
+    }).start()
+  }, [isHome])
+
+  const rotation = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "45deg"],
+  })
+
   return (
     <View style={styles.container}>
       {/* <BlurView intensity={100} style={styles.blur}> */}
@@ -20,7 +36,13 @@ export default function MainNavigation({ active }: { active: string }) {
         </Link>
         <Link href="/" asChild>
           <TouchableOpacity style={styles.centerButton}>
-            <Ionicons name="add" size={24} color="white" />
+            <Animated.View style={{ transform: [{ rotate: rotation }] }}>
+              <Ionicons
+                name={isHome ? "add" : "close"}
+                size={24}
+                color="white"
+              />
+            </Animated.View>
           </TouchableOpacity>
         </Link>
         <Link href={"/budget"} asChild>
