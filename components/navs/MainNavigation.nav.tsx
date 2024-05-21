@@ -2,20 +2,42 @@ import { View, StyleSheet, TouchableOpacity } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { BlurView } from "expo-blur"
 
-export default function MainNavigation() {
-  // create rounded navigation with 3 button and blur backgroud. center button is the main button with circle shape
+export default function MainNavigation({ active }: { active: string }) {
   return (
     <View style={styles.container}>
       <BlurView intensity={100} style={styles.blur}>
         <View style={styles.nav}>
-          <TouchableOpacity style={styles.button}>
-            <Ionicons name="list" size={24} color="black" />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              window.location.href = "/list"
+            }}
+          >
+            <Ionicons
+              name="list"
+              size={24}
+              color={active === "list" ? "#1D7BE9" : "black"}
+            />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.centerButton}>
+          <TouchableOpacity
+            style={styles.centerButton}
+            onPress={() => {
+              window.location.href = "/"
+            }}
+          >
             <Ionicons name="add" size={24} color="white" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Ionicons name="wallet" size={24} color="black" />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              window.location.href = "/budget"
+            }}
+          >
+            <Ionicons
+              name="wallet"
+              size={24}
+              color={active === "budget" ? "#1D7BE9" : "black"}
+            />
           </TouchableOpacity>
         </View>
       </BlurView>
