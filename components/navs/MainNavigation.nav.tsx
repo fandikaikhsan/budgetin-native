@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
     bottom: 30,
     width: "90%",
     alignItems: "center",
+    borderRadius: 20,
+    backgroundColor: "gray",
   },
   blur: {
     width: "100%",

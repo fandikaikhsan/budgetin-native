@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     gap: 20,
     alignItems: "center",
     width: "100%",
-    backgroundColor: "#292F36",
+    backgroundColor: "white",
   },
   text: {
     fontSize: 20,
