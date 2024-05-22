@@ -8,7 +8,10 @@ export default function DailyBudgetCard() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Daily Remain</Text>
-      <Text style={styles.amount}>$35</Text>
+      <View style={styles.amountWrap}>
+        <Text style={styles.amount}>$35</Text>
+        <Text style={styles.amountTotal}>/ $125</Text>
+      </View>
       <MultipleBar />
     </View>
   )
@@ -36,9 +39,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "light",
   },
+  amountWrap: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: 4,
+  },
   amount: {
     fontSize: 30,
     fontWeight: "bold",
+  },
+  amountTotal: {
+    fontSize: 14,
+    fontWeight: "thin",
+    opacity: 0.8,
   },
   bar: {
     marginTop: 10,
