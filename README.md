@@ -10,11 +10,16 @@ Navigating
 Working like next route. Add capability of `push`, `replace`, etc. </br>
 Add props `asChild` to pass the props in Link to child element. </br> </br>
 
+Fetching
+- Fetch data: [React Query](https://tanstack.com/query/latest/docs/framework/react/react-native) </br>
+Also has additional feature such as checking `online status`, `development focus`, etc. <br/>
+Read more on implementation [Logrocket blog](https://blog.logrocket.com/react-query-state-management-react-native/) <br/> <br/>
+
 Persisting Data
 - Store data with Async Storage in String: [React Native Async Storage](https://github.com/react-native-async-storage/async-storage) <br/>
 `Please aware of the limits` [check this limitation in Android](https://react-native-async-storage.github.io/async-storage/docs/advanced/db_size)
 - Store token data (sensitive data) in [Keychain](https://github.com/oblador/react-native-keychain) (iOS) and Keystore (Android) <br/>
-Read more: [Medium article](https://medium.com/@shahidrogers/react-native-basics-mastering-secure-storage-solutions-071a0fc75201)
+Read more: [Medium article](https://medium.com/@shahidrogers/react-native-basics-mastering-secure-storage-solutions-071a0fc75201) 
 
 
 ---
