@@ -1,3 +1,8 @@
+## Resources:
+
+- Figma: [Figma Link](https://www.figma.com/design/oKjzsdV9aCx3NYKGIQyIqP/App-UI?node-id=0%3A1&t=6y3risP9790p7Mcn-1)
+
+
 ## Library used:
 
 - Routing: [Expo Route](https://docs.expo.dev/router/navigating-pages/) </br>
