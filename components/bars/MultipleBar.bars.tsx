@@ -57,7 +57,10 @@ export default function MultipleBar() {
     for (let i = 0; i < index; i++) {
       cumulativeProgress += data[i].progress
     }
-    const barLeftPosition = cumulativeProgress * 100
+    const barLeftPosition =
+      cumulativeProgress < 0.5
+        ? cumulativeProgress * 100
+        : cumulativeProgress * 100 - 20
     setClickedBar({ index, category, progress, x: barLeftPosition })
   }
 
