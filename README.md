@@ -1,6 +1,9 @@
 ## Library used:
 
-- Store string data with Async: [React Native Sync](https://github.com/react-native-async-storage/async-storage) <br/>
+- Routing: [Expo Route](https://docs.expo.dev/router/navigating-pages/) </br>
+Working like next route. Add capability of `push`, `replace`, etc. </br>
+Add props `asChild` to pass the props in Link to child element. </br> </br>
+- Store data with Async Storage in String: [React Native Async Storage](https://github.com/react-native-async-storage/async-storage) <br/>
 `Please aware of the limits` [check this limitation in Android](https://react-native-async-storage.github.io/async-storage/docs/advanced/db_size)
 
 
