@@ -10,9 +10,6 @@ export default function DailyBudgetCard() {
       <Text style={styles.title}>Daily Remain</Text>
       <Text style={styles.amount}>$35</Text>
       <MultipleBar />
-      <View style={styles.popUp}>
-        <Text style={styles.popUpText}>Bar clicked</Text>
-      </View>
     </View>
   )
 }
@@ -45,18 +42,5 @@ const styles = StyleSheet.create({
   },
   bar: {
     marginTop: 10,
-  },
-  popUp: {
-    position: "absolute",
-    top: 50,
-    left: 130,
-    width: "auto",
-    backgroundColor: "black",
-    padding: 10,
-    borderRadius: 10,
-  },
-  popUpText: {
-    color: "white",
-    fontSize: 10,
   },
 })
