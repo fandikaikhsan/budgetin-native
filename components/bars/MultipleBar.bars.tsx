@@ -10,6 +10,7 @@ import {
 
 interface BarData {
   id: number
+  category: string
   color: string
   progress: number
 }
@@ -17,16 +18,19 @@ interface BarData {
 const data: BarData[] = [
   {
     id: 1,
+    category: "Food",
     color: "#FB4444",
     progress: 0.4,
   },
   {
     id: 2,
+    category: "Transport",
     color: "#5BA1F3",
     progress: 0.3,
   },
   {
     id: 3,
+    category: "Entertainment",
     color: "#5BD8F3",
     progress: 0.2,
   },
@@ -34,6 +38,7 @@ const data: BarData[] = [
 
 interface ClickedBar {
   index: number
+  category: string
   progress: number
   x: number
 }
@@ -43,6 +48,7 @@ export default function MultipleBar() {
 
   const handleBarClick = (
     index: number,
+    category: string,
     progress: number,
     event: GestureResponderEvent
   ) => {
@@ -52,7 +58,7 @@ export default function MultipleBar() {
       cumulativeProgress += data[i].progress
     }
     const barLeftPosition = cumulativeProgress * 100
-    setClickedBar({ index, progress, x: barLeftPosition })
+    setClickedBar({ index, category, progress, x: barLeftPosition })
   }
 
   const handleOutsideClick = () => {
@@ -73,7 +79,9 @@ export default function MultipleBar() {
                   backgroundColor: item.color,
                 },
               ]}
-              onPress={(event) => handleBarClick(index, item.progress, event)}
+              onPress={(event) =>
+                handleBarClick(index, item.category, item.progress, event)
+              }
             />
           ))}
         </View>
@@ -85,7 +93,8 @@ export default function MultipleBar() {
             ]}
           >
             <Text style={styles.popupText}>
-              {Math.round(clickedBar.progress * 100)}%
+              {clickedBar.category} $
+              {Math.round(clickedBar.progress * (10000 / 125))}
             </Text>
           </View>
         )}
@@ -123,5 +132,6 @@ const styles = StyleSheet.create({
   },
   popupText: {
     color: "white",
+    fontSize: 12,
   },
 })
